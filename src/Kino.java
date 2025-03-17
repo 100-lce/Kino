@@ -59,7 +59,6 @@ public class Kino {
                     Seans seans = (Seans) read.readObject();
                     odczytaneSeanse.add(seans);
                 } catch (EOFException e) {
-                    System.out.println(e.getMessage());
                     break;
                 }
             }
