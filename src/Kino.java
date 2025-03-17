@@ -4,10 +4,10 @@ import java.io.*;
 import java.util.*;
 
 public class Kino {
-    private final String PLIK_SEANSE = "seanse.ser";
-    private final String PLIK_KLIENCI = "klienci.xml";
-    List<Seans> dostepneSeanse;
-    List<Klient> klienci;
+    private static final String PLIK_SEANSE = "seanse.ser";
+    private static final String PLIK_KLIENCI = "klienci.xml";
+    private final List<Seans> dostepneSeanse;
+    private final List<Klient> klienci;
 
     public Kino() {
         System.out.println("Witaj w kinie!");
@@ -16,9 +16,7 @@ public class Kino {
     }
 
     public void pokazKlientow() {
-        for(Klient klient : klienci) {
-            System.out.println(klient);
-        }
+        klienci.forEach(System.out::println);
     }
 
     private List<Klient> odczytajKlientow() {
@@ -28,10 +26,9 @@ public class Kino {
         xStream.alias("klient", Klient.class);
         xStream.alias("klienci", List.class);
 
-        try {
-            FileReader reader = new FileReader(PLIK_KLIENCI);
+        try (FileReader reader = new FileReader(PLIK_KLIENCI)){
+
             klienci = (List<Klient>) xStream.fromXML(reader);
-            reader.close();
 
         } catch (IOException e) {
             return klienci;
@@ -130,7 +127,7 @@ public class Kino {
                 throw new IllegalArgumentException("Wybrano nieistniejace lub zajęte miejsce");
             } else {
                 dostepneMiejsca.get(rzad).put(miejsce, true);
-                klient.setSeans(dostepneSeanse.get(wybor).tytul);
+                klient.setSeans(dostepneSeanse.get(wybor).getTytul());
                 klient.addMiejsce(new HashMap<>(Map.of(rzad, miejsce)));
                 klienci.add(klient);
                 zapiszSeanse(this.dostepneSeanse);
@@ -180,8 +177,6 @@ public class Kino {
     }
 
     public void pokazSeanse() {
-        for (Seans seans : dostepneSeanse) {
-            System.out.println(seans);
-        }
+        dostepneSeanse.forEach(System.out::println);
     }
 }
