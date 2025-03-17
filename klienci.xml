@@ -1,0 +1,17 @@
+<klienci>
+  <klient>
+    <nazwisko>Kamikadzova</nazwisko>
+    <imie>Kataryna</imie>
+    <email>kk@onet.pl</email>
+    <telefon>123</telefon>
+    <seans>Extraction 3</seans>
+    <miejsca>
+      <map>
+        <entry>
+          <char>d</char>
+          <int>2</int>
+        </entry>
+      </map>
+    </miejsca>
+  </klient>
+</klienci>
