@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Klient {
     private String nazwisko, imie, email, telefon, seans;
-    List<HashMap<Character, Integer>> miejsca;
+    private List<HashMap<Character, Integer>> miejsca;
 
     public Klient() {
         miejsca = new ArrayList<>();

@@ -2,11 +2,13 @@ import java.io.Serializable;
 import java.util.HashMap;
 
 public class Seans implements Serializable {
-     String tytul, godzina;
-     public static enum DzienTygodnia {PONIEDZIALEK, WTOREK, SRODA, CZWARTEK, PIATEK, SOBOTA, NIEDZIELA};
-     DzienTygodnia dzien;
-     int ograniczenieWiekowe;
-     HashMap<Character, HashMap<Integer, Boolean>> liczbaMiejsc;
+     private String tytul, godzina;
+
+     public enum DzienTygodnia {PONIEDZIALEK, WTOREK, SRODA, CZWARTEK, PIATEK, SOBOTA, NIEDZIELA};
+
+     private DzienTygodnia dzien;
+     private int ograniczenieWiekowe;
+     private HashMap<Character, HashMap<Integer, Boolean>> liczbaMiejsc;
 
     public Seans(String tytul, String godzina, DzienTygodnia dzien, int ograniczenieWiekowe, HashMap<Character, HashMap<Integer, Boolean>> liczbaMiejsc) {
         this.tytul = tytul;
